@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Rolagem suave para links de navegação
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
@@ -30,31 +30,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Inicialize o EmailJS com sua Public Key
-    emailjs.init('M_0BhcWdn6oIYVXxh'); // Use sua Public Key aqui
+    // Inicializa o EmailJS
+    (function () {
+        emailjs.init('M_0BhcWdn6oIYVXxh'); // Substitua pelo seu User ID
+    })();
 
-    // Configuração do formulário de contato
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Obtenha os dados do formulário
-            const formData = {
-                from_name: contactForm.querySelector('[name="from_name"]').value,
-                reply_to: contactForm.querySelector('[name="reply_to"]').value,
-                message: contactForm.querySelector('[name="message"]').value
-            };
+    // Adiciona o evento de envio do formulário
+    document.querySelector('.contact-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
 
-            // Envie o e-mail usando o template do EmailJS
-            emailjs.send('service_wsr63tx', 'twledo', formData)
-                .then(function(response) {
-                    alert('Mensagem enviada com sucesso!');
-                    contactForm.reset(); // Limpa o formulário após o envio
-                }, function(error) {
-                    alert('Ocorreu um erro: ' + error.text);
-                });
-        });
-    }
+        // Coleta os dados do formulário
+        const formData = {
+            from_name: this.from_name.value, // Nome do campo "from_name" no formulário
+            reply_to: this.reply_to.value,   // Nome do campo "reply_to" no formulário
+            message: this.message.value      // Nome do campo "message" no formulário
+        };
+
+        // Envia o e-mail usando EmailJS
+        emailjs.send("twledo_email", "template_6l5m0q6", formData)
+            .then(function (response) {
+                alert('Mensagem enviada com sucesso!');
+                document.querySelector('.contact-form').reset(); // Limpa o formulário
+            }, function (error) {
+                alert('Erro ao enviar a mensagem. Tente novamente.');
+                console.error('Erro:', error); // Exibe o erro no console para depuração
+            });
+    });
 });
