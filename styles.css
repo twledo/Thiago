@@ -1,0 +1,512 @@
+:root {
+    --primary-blue: #2A4D6D;
+    --secondary-blue: #3A6B8F;
+    --accent-blue: #4D8DB4;
+    --light-blue: #EFF5FB;
+    --pure-white: #FFFFFF;
+    --text-dark: #2C3E50;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--pure-white);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header */
+.main-header {
+    background: var(--pure-white);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.logo-highlight {
+    color: var(--accent-blue);
+}
+
+/* Navegação */
+.main-nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: var(--transition);
+    font-size: 1.25rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-blue);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 6rem 0;
+    background: linear-gradient(to right, var(--light-blue) 50%, var(--pure-white) 50%);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-blue);
+    line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-blue);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    margin-right: 1rem;
+    background: var(--accent-blue);
+    color: var(--pure-white);
+    border: 2px solid var(--accent-blue);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--accent-blue);
+    border: 2px solid var(--accent-blue);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(77, 141, 180, 0.3);
+}
+
+/* Imagem do Perfil */
+.profile-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 var(--light-blue);
+}
+
+/* Cards */
+.card {
+    background: var(--pure-white);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.skills-list li {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Footer */
+.main-footer {
+    background: var(--primary-blue);
+    color: var(--pure-white);
+    padding: 1.5rem 0;
+    margin-top: 1rem;
+}
+
+.footer-text {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-icon {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: var(--pure-white);
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    color: var(--accent-blue);
+    transform: translateY(-3px);
+}
+
+/* Seções Gerais */
+.section {
+    padding: 3rem 0;
+    scroll-margin-top: 87px;
+}
+
+.section-heading {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-blue);
+    margin: 1rem auto 2rem;
+}
+
+/* Grid Layout */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Cards Específicos */
+.card-icon {
+    font-size: 2rem;
+    color: var(--accent-blue);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.timeline {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.timeline li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--light-blue);
+    border: 2px solid var(--accent-blue);
+    border-radius: 50%;
+}
+
+.timeline h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.timeline p {
+    color: var(--secondary-blue);
+    font-size: 0.9rem;
+}
+
+/* Habilidades */
+.skills-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    margin-bottom: 1rem;
+}
+
+.skill-name {
+    display: block;
+    margin-top: 1rem;
+    color: var(--primary-blue);
+}
+
+.skill-bar {
+    height: 8px;
+    background: var(--light-blue);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--accent-blue);
+    transition: var(--transition);
+}
+
+/* Projetos */
+.project-showcase {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.project-item {
+    padding: 1.5rem;
+    background: var(--light-blue);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.project-item:hover {
+    transform: translateX(5px);
+}
+
+.project-item h4 {
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+}
+
+.project-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* Contato */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.contact-info {
+    display: grid;
+    gap: 2rem;
+}
+
+.contact-card {
+    padding: 2rem;
+    background: var(--light-blue);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.contact-card i {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    margin-bottom: 1rem;
+}
+
+.contact-card a {
+    color: var(--secondary-blue);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-card a:hover {
+    color: var(--accent-blue);
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--light-blue);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-img {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .main-nav ul {
+        gap: 1rem;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Adicione isso no final do CSS existente */
+
+@media (max-width: 480px) {
+    /* Corrigir scroll horizontal */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    body {
+        position: relative;
+    }
+
+    #sobre {
+        padding-top: 5rem;
+    }
+
+    /* Navbar fixa centralizada */
+    .main-header {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        background: var(--pure-white);
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Conteúdo da navbar centralizado */
+    .header-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo {
+        content-visibility: hidden;
+    }
+
+    /* Ajustar menu de navegação */
+    .main-nav ul {
+        gap: 0.9rem;
+        padding-right: 0;
+    }
+
+    .nav-link {
+        font-size: 0.9rem; /* Reduzir tamanho da fonte */
+    }
+
+    /* Ajustar padding do hero section para compensar navbar fixa */
+    .hero-section {
+        padding: 7rem 0 4rem 0;
+    }
+
+    /* Prevenir quebra de layout */
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Ajustar tamanho do título */
+    .section-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    /* Ajustar imagem do perfil */
+    .profile-img {
+        max-width: 300px;
+        box-shadow: 10px 10px 0 var(--light-blue);
+    }
+
+    /* Ajustar cards */
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .section {
+        scroll-margin-top: 2rem; /* ajuste esse valor conforme necessário */
+    }
+}
+
+/* Garantir que nada ultrapasse a largura da tela */
+body {
+    max-width: 100vw;
+}
